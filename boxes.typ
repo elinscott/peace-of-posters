@@ -254,54 +254,51 @@
   authors: none,
   institutes: none,
   keywords: none,
-  image: none,
-  text-relative-width: 80%,
   spacing: 5%,
   title-size: none,
   subtitle-size: none,
-  authors-size: none,
-  keywords-size: none,
+  authors-size: 1em,
+  institutes-size: 0.7em,
+  background-image: none,
+  logo: none,
+  banner-height: 10cm,
 ) = {
+  // Set the background image
   locate(loc => {
-    let text-relative-width = text-relative-width
     /// Get theme and layout state
     let pl = _state-poster-layout.at(loc)
+    let pt = _state-poster-theme.at(loc)
 
     /// Layout specific options
     let title-size = if title-size==none {pl.at("title-size")} else {title-size}
     let subtitle-size = if subtitle-size==none {pl.at("subtitle-size")} else {subtitle-size}
     let authors-size = if authors-size==none {pl.at("authors-size")} else {authors-size}
-    let keywords-size = if keywords-size==none {pl.at("keywords-size")} else {keywords-size}
 
     /// Generate body of box
     let text-content = [
-      #set text(size: title-size)
+      #set text(weight: "bold", size: title-size, fill: white)
       #title\
       #set text(size: subtitle-size)
       #if subtitle!=none {[#subtitle\ ]}
-      #v(1.25em, weak: true)
-      #set text(size: authors-size)
-      #if authors!=none {[#authors\ ]}
-      #if institutes!=none {[#institutes\ ]}
-      #if keywords!=none {[
-        #v(1em, weak: true)
-        #set text(size: keywords-size)
-        #keywords
-      ]}
     ]
 
-    /// Expand to full width of no image is specified
-    if image==none {
-      text-relative-width=100%
-    }
-
     /// Finally construct the main rectangle
-    common-box(heading:
-      stack(dir: ltr,
-        box(text-content, width: text-relative-width),
-        align(right, box(image, width: 100% - spacing - text-relative-width))
-      ))
+    let indent = 2cm
+    v(-indent) + h(-indent) + box(image(background-image, width: 100% + 2 * indent, height: banner-height))
+    v(indent - banner-height)
+    box(logo)
+    v(2em)
+    box(text-content, width: 100%)
+  v(3.25em, weak: true)
+  set text(size: authors-size)
+  if authors!=none {text(weight: "bold", authors) + linebreak()}
+  if institutes!=none {[
+    #v(1em, weak: true)
+    #set text(size: institutes-size)
+    #institutes
+  ]}
   })
+
 }
 
 #let bottom-box(body, text-relative-width: 70%, logo: none, ..args) = {

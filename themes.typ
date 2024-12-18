@@ -15,6 +15,30 @@
     ),
 ))
 
+#let psi-ch = (
+    "body-box-args": (
+        inset: (x: 0.0em, y: 0.6em),
+        width: 100%,
+        stroke: none,
+    ),
+    "body-text-args": (:),
+    "title-box-args": (
+        inset: 1em,
+        width: 100% + 2cm,
+        fill: rgb("#dc005a"),
+        stroke: rgb("#dc005a"),
+    ),
+    "heading-box-args": (
+        inset: 0em,
+        width: 100%,
+        stroke: none,
+    ),
+    "heading-text-args": (
+        fill: rgb("#dc005a"),
+        weight: "bold",
+    ),
+)
+
 #let uni-fr = (
     "body-box-args": (
         inset: 0.6em,

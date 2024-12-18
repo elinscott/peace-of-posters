@@ -19,7 +19,7 @@
     "paper":            "a1",
     "size":             (594mm, 841mm),
     "body-size":        27pt,
-    "heading-size":     41pt,
+    "heading-size":     30pt,
     "title-size":       61pt,
     "subtitle-size":    49pt,
     "authors-size":     41pt,
