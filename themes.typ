@@ -15,7 +15,14 @@
     ),
 ))
 
+#let psi-pink = rgb("#dc005a")
+#let psi-yellow = rgb("#f0f500")
+
 #let psi-ch = (
+    "colors": (
+        primary: psi-pink,
+        secondary: psi-yellow,
+    ),
     "body-box-args": (
         inset: (x: 0.0em, y: 0.6em),
         width: 100%,
@@ -25,8 +32,8 @@
     "title-box-args": (
         inset: 1em,
         width: 100% + 2cm,
-        fill: rgb("#dc005a"),
-        stroke: rgb("#dc005a"),
+        fill: psi-pink,
+        stroke: psi-pink,
     ),
     "heading-box-args": (
         inset: 0em,
@@ -34,9 +41,17 @@
         stroke: none,
     ),
     "heading-text-args": (
-        fill: rgb("#dc005a"),
+        fill: psi-pink,
         weight: "bold",
     ),
+    "bottom-box-args": (
+        fill: psi-pink,
+    ),
+    "bottom-text-args": (
+        fill: white, 
+        stroke: white, 
+        weight: "bold",
+    )
 )
 
 #let uni-fr = (

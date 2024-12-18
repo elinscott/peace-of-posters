@@ -313,8 +313,12 @@
       )
     }
   ]
-  let r = common-box(heading: body, bottom-box: true, ..args)
-  align(bottom, r)
+  // Set the background image
+  locate(loc => {
+    let pt = _state-poster-theme.at(loc)
+    let r = common-box(body: box(inset: 1em, body), bottom-box: true, body-box-args: pt.at("bottom-box-args"), body-text-args: pt.at("bottom-text-args"), ..args)
+    align(bottom, r)
+  })
 }
 
 /// TODO
@@ -324,6 +328,7 @@
   }
   column-box(heading: title, stretch-to-next: stretch-to-next)[
     #set text(size: body-size)
+    #set par(spacing: 0.7em)
     #bibliography(bib-file, title: none, style: style)
   ]
 }
